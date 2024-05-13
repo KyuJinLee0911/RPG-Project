@@ -29,12 +29,12 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
             ""actions"": [
                 {
                     ""name"": ""MoveToPosition"",
-                    ""type"": ""Button"",
+                    ""type"": ""Value"",
                     ""id"": ""77317633-5fc1-464e-afc4-78ef28ad5114"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": ""Tap"",
-                    ""initialStateCheck"": false
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 },
                 {
                     ""name"": ""Zoom"",
