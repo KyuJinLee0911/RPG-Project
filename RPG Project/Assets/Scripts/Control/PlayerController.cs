@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using RPG.Movement;
 using RPG.Combat;
+using RPG.Core;
 
 namespace RPG.Control
 {
@@ -9,14 +10,18 @@ namespace RPG.Control
     {
         float isClicked;
         Fighter fighter;
+        Health health;
 
         private void Start()
         {
             fighter = GetComponent<Fighter>();
+            health = GetComponent<Health>();
         }
 
         void Update()
         {
+            if(health.IsDead) return;
+
             if (InteractWithCombat()) return;
             if (InteractWithMovement()) return;
             // if (!CanInteract()) Debug.Log("Nothing to interact");
@@ -28,12 +33,15 @@ namespace RPG.Control
             foreach (RaycastHit hit in hits)
             {
                 CombatTarget target = hit.transform.GetComponent<CombatTarget>();
-                if (target == null)
-                    continue;
+                if(target == null) continue;
+
+                GameObject targetGameObject = target.gameObject;
+
+                if (!fighter.CanAttack(targetGameObject)) continue;
 
                 if (isClicked == 1)
                 {
-                    fighter.Attack(target);
+                    fighter.Attack(targetGameObject);
 
                 }
                 return true;

@@ -14,19 +14,21 @@ namespace RPG.Movement
 
         [SerializeField]
         Animator animator;
+        Health health;
 
         float isClicked;
 
         void Start()
         {
             nmAgent = gameObject.GetComponent<NavMeshAgent>();
-            animator = transform.GetChild(0).GetComponent<Animator>();
+            health = GetComponent<Health>();
+            animator = transform.GetComponent<Animator>();
         }
 
         void Update()
         {
+            if(health.IsDead) nmAgent.enabled = false;
             UpdateAnimator();
-            Debug.Log($"{nmAgent.isStopped}");
         }
 
         private void UpdateAnimator()
