@@ -53,6 +53,24 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Dash"",
+                    ""type"": ""Button"",
+                    ""id"": ""64882ebe-eea8-42f2-87df-064d166f1f74"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Tap"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Dance"",
+                    ""type"": ""Button"",
+                    ""id"": ""0e7fbd10-75da-4e40-9e47-d994e2403769"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -110,6 +128,28 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
                     ""action"": ""Look"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e94c522a-e3c0-4a10-864b-f93834046820"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard&Mouse"",
+                    ""action"": ""Dash"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7976258a-b187-4e0e-9863-d900e43c5fdb"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Dance"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -698,6 +738,8 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
         m_Player_MoveToPosition = m_Player.FindAction("MoveToPosition", throwIfNotFound: true);
         m_Player_Zoom = m_Player.FindAction("Zoom", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_Dash = m_Player.FindAction("Dash", throwIfNotFound: true);
+        m_Player_Dance = m_Player.FindAction("Dance", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -774,6 +816,8 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MoveToPosition;
     private readonly InputAction m_Player_Zoom;
     private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_Dash;
+    private readonly InputAction m_Player_Dance;
     public struct PlayerActions
     {
         private @RPGProject m_Wrapper;
@@ -781,6 +825,8 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
         public InputAction @MoveToPosition => m_Wrapper.m_Player_MoveToPosition;
         public InputAction @Zoom => m_Wrapper.m_Player_Zoom;
         public InputAction @Look => m_Wrapper.m_Player_Look;
+        public InputAction @Dash => m_Wrapper.m_Player_Dash;
+        public InputAction @Dance => m_Wrapper.m_Player_Dance;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -799,6 +845,12 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
+            @Dash.started += instance.OnDash;
+            @Dash.performed += instance.OnDash;
+            @Dash.canceled += instance.OnDash;
+            @Dance.started += instance.OnDance;
+            @Dance.performed += instance.OnDance;
+            @Dance.canceled += instance.OnDance;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -812,6 +864,12 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
+            @Dash.started -= instance.OnDash;
+            @Dash.performed -= instance.OnDash;
+            @Dash.canceled -= instance.OnDash;
+            @Dance.started -= instance.OnDance;
+            @Dance.performed -= instance.OnDance;
+            @Dance.canceled -= instance.OnDance;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -997,6 +1055,8 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
         void OnMoveToPosition(InputAction.CallbackContext context);
         void OnZoom(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnDash(InputAction.CallbackContext context);
+        void OnDance(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

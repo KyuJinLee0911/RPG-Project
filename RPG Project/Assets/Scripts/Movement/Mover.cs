@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using RPG.Combat;
 using RPG.Core;
 using UnityEngine;
@@ -33,7 +35,7 @@ namespace RPG.Movement
 
         private void UpdateAnimator()
         {
-            animator.SetFloat("Speed", nmAgent.velocity.magnitude / nmAgent.speed);
+            animator.SetFloat("Speed", nmAgent.velocity.magnitude);
         }
 
         public void Cancel()
