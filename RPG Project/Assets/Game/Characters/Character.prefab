@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 6537063410784043988}
   - component: {fileID: 3042175906803979775}
   - component: {fileID: -8794411327712052018}
+  - component: {fileID: 3038812897693035842}
   m_Layer: 0
   m_Name: Character
   m_TagString: Untagged
@@ -413,6 +414,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5df9630316cfb14e8f8b891a1a25746, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  dodgeDistance: 3
+  isDodging: 0
+  dodgeSpeed: 40
 --- !u!114 &-8794411327712052018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -426,6 +430,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+--- !u!114 &3038812897693035842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205053143611938399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ea9374b509b70f4bba37e4a2ca8cf00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  uniqueIdentifier: 
 --- !u!1 &1467527790588576611
 GameObject:
   m_ObjectHideFlags: 0

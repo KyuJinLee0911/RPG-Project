@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using RPG.Combat;
 using RPG.Core;
+using RPG.Saving;
 using UnityEngine;
 using UnityEngine.AI;
 
 namespace RPG.Movement
 {
-    public class Mover : MonoBehaviour, IAction
+    public class Mover : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField]
         Transform target;
@@ -56,7 +57,14 @@ namespace RPG.Movement
             nmAgent.isStopped = false;
         }
 
-        
+        public object CaptureState()
+        {
+            throw new System.NotImplementedException();
+        }
 
+        public void RestoreState(object state)
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
