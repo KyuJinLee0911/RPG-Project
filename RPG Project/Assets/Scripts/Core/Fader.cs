@@ -11,9 +11,19 @@ namespace RPG.Core
         WaitForEndOfFrame waitForEndOfFrame = new WaitForEndOfFrame();
         CanvasGroup cg;
 
-        private void Start()
+        private void Awake()
         {
             cg = GetComponent<CanvasGroup>();
+        }
+
+        private void Start()
+        {
+
+        }
+
+        public void FadeOutImmediate()
+        {
+            cg.alpha = 1;
         }
 
         public IEnumerator FadeOut(float time)

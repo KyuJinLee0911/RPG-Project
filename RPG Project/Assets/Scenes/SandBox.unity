@@ -1753,7 +1753,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7731994493669338689, guid: 61030802e9cba8e4b83323f26c5f5e19, type: 3}
       propertyPath: fadeInTime
-      value: 1.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7731994493669338689, guid: 61030802e9cba8e4b83323f26c5f5e19, type: 3}
       propertyPath: destination
@@ -1761,7 +1761,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7731994493669338689, guid: 61030802e9cba8e4b83323f26c5f5e19, type: 3}
       propertyPath: fadeOutTime
-      value: 1.5
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 7731994493669338689, guid: 61030802e9cba8e4b83323f26c5f5e19, type: 3}
       propertyPath: sceneToLoad
@@ -3643,7 +3643,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 399444709}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40933806, y: 0.08463663, z: -0.038170148, w: 0.9076464}
+  m_LocalRotation: {x: 0.4093381, y: 0.084636636, z: -0.03817015, w: 0.9076464}
   m_LocalPosition: {x: -19.7, y: 21.7, z: -4.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -5888,7 +5888,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 733560210}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.14157873, y: -0.7598246, z: 0.17650217, w: 0.60948265}
+  m_LocalRotation: {x: 0.14157873, y: -0.7598246, z: 0.17650214, w: 0.6094827}
   m_LocalPosition: {x: 27.23, y: 13.65, z: -6.77}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -20930,6 +20930,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Follow Camera(CVCamera)
       objectReference: {fileID: 0}
+    - target: {fileID: 8041885851946172179, guid: e03ecc95115daae4689f90916d099980, type: 3}
+      propertyPath: m_CameraDistance
+      value: 20.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8520286590991755278, guid: e03ecc95115daae4689f90916d099980, type: 3}
       propertyPath: m_Follow
       value: 
@@ -23544,10 +23548,6 @@ PrefabInstance:
     - target: {fileID: 405508886381111611, guid: 7e2783df9c0b97d44a1d26b99eef6d76, type: 3}
       propertyPath: m_LocalRotation.z
       value: 0.2418697
-      objectReference: {fileID: 0}
-    - target: {fileID: 419964151986076533, guid: 7e2783df9c0b97d44a1d26b99eef6d76, type: 3}
-      propertyPath: uniqueIdentifier
-      value: 35d26f49-7bd6-487c-a7bf-99dcdd88cfb3
       objectReference: {fileID: 0}
     - target: {fileID: 936707737080472044, guid: 7e2783df9c0b97d44a1d26b99eef6d76, type: 3}
       propertyPath: m_LocalPosition.x
