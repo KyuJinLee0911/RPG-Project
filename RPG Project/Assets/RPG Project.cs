@@ -89,6 +89,15 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwapToPrevWeapon"",
+                    ""type"": ""Button"",
+                    ""id"": ""e1d4c828-c28b-48dd-b9fa-7a2d954d8a55"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -188,6 +197,17 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Load"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""88fbf9de-d6c5-48e2-b635-00546bd0e719"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapToPrevWeapon"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -782,6 +802,7 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
         m_Player_Dance = m_Player.FindAction("Dance", throwIfNotFound: true);
         m_Player_Save = m_Player.FindAction("Save", throwIfNotFound: true);
         m_Player_Load = m_Player.FindAction("Load", throwIfNotFound: true);
+        m_Player_SwapToPrevWeapon = m_Player.FindAction("SwapToPrevWeapon", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -862,6 +883,7 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Dance;
     private readonly InputAction m_Player_Save;
     private readonly InputAction m_Player_Load;
+    private readonly InputAction m_Player_SwapToPrevWeapon;
     public struct PlayerActions
     {
         private @RPGProject m_Wrapper;
@@ -873,6 +895,7 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
         public InputAction @Dance => m_Wrapper.m_Player_Dance;
         public InputAction @Save => m_Wrapper.m_Player_Save;
         public InputAction @Load => m_Wrapper.m_Player_Load;
+        public InputAction @SwapToPrevWeapon => m_Wrapper.m_Player_SwapToPrevWeapon;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -903,6 +926,9 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
             @Load.started += instance.OnLoad;
             @Load.performed += instance.OnLoad;
             @Load.canceled += instance.OnLoad;
+            @SwapToPrevWeapon.started += instance.OnSwapToPrevWeapon;
+            @SwapToPrevWeapon.performed += instance.OnSwapToPrevWeapon;
+            @SwapToPrevWeapon.canceled += instance.OnSwapToPrevWeapon;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -928,6 +954,9 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
             @Load.started -= instance.OnLoad;
             @Load.performed -= instance.OnLoad;
             @Load.canceled -= instance.OnLoad;
+            @SwapToPrevWeapon.started -= instance.OnSwapToPrevWeapon;
+            @SwapToPrevWeapon.performed -= instance.OnSwapToPrevWeapon;
+            @SwapToPrevWeapon.canceled -= instance.OnSwapToPrevWeapon;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1117,6 +1146,7 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
         void OnDance(InputAction.CallbackContext context);
         void OnSave(InputAction.CallbackContext context);
         void OnLoad(InputAction.CallbackContext context);
+        void OnSwapToPrevWeapon(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

@@ -14,7 +14,6 @@ namespace RPG.Control
         [Header("Chase")]
         [SerializeField] float chaseDistance = 5f;
         [SerializeField] float chaseSpeed = 5f;
-        [SerializeField] float weaponRange = 1.5f;
 
         [Header("Patrol")]
         [SerializeField] PatrolPath patrolPath;
@@ -121,7 +120,7 @@ namespace RPG.Control
 
         private bool InAttackRangeOfPlayer()
         {
-            return DistanceToPlayer() > weaponRange;
+            return DistanceToPlayer() > fighter.getCurrentWeapon.range;
         }
 
         private bool ChasePlayer()
