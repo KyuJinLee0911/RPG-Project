@@ -2065,6 +2065,10 @@ PrefabInstance:
       propertyPath: sceneToLoad
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7731994493669338689, guid: 61030802e9cba8e4b83323f26c5f5e19, type: 3}
+      propertyPath: weaponPickupsParent
+      value: 
+      objectReference: {fileID: 5518375286474119942}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2511,6 +2515,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 696131663683068204, guid: 80af9684758b5b94fba9fcbf792411ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -33.68137
+      objectReference: {fileID: 0}
+    - target: {fileID: 696131663683068204, guid: 80af9684758b5b94fba9fcbf792411ad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.8458695
+      objectReference: {fileID: 0}
+    - target: {fileID: 696131663683068204, guid: 80af9684758b5b94fba9fcbf792411ad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -19.499523
+      objectReference: {fileID: 0}
     - target: {fileID: 771517750652306606, guid: 80af9684758b5b94fba9fcbf792411ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: -14.630131
@@ -2551,6 +2567,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 906691714685997263, guid: 80af9684758b5b94fba9fcbf792411ad, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -33.68137
+      objectReference: {fileID: 0}
+    - target: {fileID: 906691714685997263, guid: 80af9684758b5b94fba9fcbf792411ad, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 6.8458695
+      objectReference: {fileID: 0}
+    - target: {fileID: 906691714685997263, guid: 80af9684758b5b94fba9fcbf792411ad, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -19.499523
+      objectReference: {fileID: 0}
     - target: {fileID: 4383707768959030843, guid: 80af9684758b5b94fba9fcbf792411ad, type: 3}
       propertyPath: m_Name
       value: Core
@@ -2560,6 +2588,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 80af9684758b5b94fba9fcbf792411ad, type: 3}
+--- !u!4 &5518375286474119942 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2939765991403774944, guid: 80af9684758b5b94fba9fcbf792411ad, type: 3}
+  m_PrefabInstance: {fileID: 5518375286474119941}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7665967472703987243
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2612,6 +2645,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Portal
       objectReference: {fileID: 0}
+    - target: {fileID: 7731994493669338689, guid: 61030802e9cba8e4b83323f26c5f5e19, type: 3}
+      propertyPath: weaponPickupsParent
+      value: 
+      objectReference: {fileID: 5518375286474119942}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

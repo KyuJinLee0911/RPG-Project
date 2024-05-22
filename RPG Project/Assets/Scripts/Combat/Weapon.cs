@@ -1,6 +1,8 @@
 using System;
 using System.Runtime.InteropServices;
 using RPG.Core;
+using RPG.Saving;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace RPG.Combat
@@ -8,6 +10,8 @@ namespace RPG.Combat
     [CreateAssetMenu(fileName = "Weapon", menuName = "Weapons/Make new Weapon", order = 0)]
     public class Weapon : ScriptableObject
     {
+        [SerializeField] string weaponName;
+        public string Name { get => weaponName; }
         [SerializeField] bool isLeftHand;
         public bool IsLeftHand { get => isLeftHand; }
 
@@ -53,7 +57,7 @@ namespace RPG.Combat
         {
             Transform hand = FindHandTransform(rightHand, leftHand);
             Projectile projectileInstance = Instantiate(projectile, hand.position, Quaternion.identity);
-            
+
             // 투사체의 목표를 설정 후 발사할 때 목표를 바라보고 화살이 일직선으로 나가도록
             projectileInstance.SetTarget(target, weaponDamage);
             projectileInstance.transform.LookAt(projectileInstance.GetAimLocation());

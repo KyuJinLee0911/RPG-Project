@@ -71,7 +71,6 @@ namespace RPG.Control
                 if (isClicked == 1)
                 {
                     fighter.Attack(targetGameObject);
-
                 }
                 return true;
             }
@@ -105,7 +104,6 @@ namespace RPG.Control
         void OnMoveToPosition(InputValue value)
         {
             isClicked = value.Get<float>();
-            Debug.Log($"Moving, isClicked? {isClicked}");
         }
 
         void OnDash()

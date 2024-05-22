@@ -175,6 +175,18 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: fe568aad-b2ec-4f52-b4b1-acd9d9ffed6c
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5eb63b0d-c03b-4b76-81eb-3003592f6ce0
+    m_ActionName: Player/Save[/Keyboard/leftBracket]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 886b8b2c-0fd9-495d-8f45-415fcd2d5dd7
+    m_ActionName: Player/Load[/Keyboard/rightBracket]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: e1d4c828-c28b-48dd-b9fa-7a2d954d8a55
+    m_ActionName: Player/SwapToPrevWeapon[/Keyboard/c]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -273,11 +285,11 @@ MonoBehaviour:
   m_YDamping: 1
   m_ZDamping: 1
   m_TargetMovementOnly: 1
-  m_ScreenX: 0.6229222
-  m_ScreenY: 0.499074
+  m_ScreenX: 0.5
+  m_ScreenY: 0.5
   m_CameraDistance: 20.6
-  m_DeadZoneWidth: 0.15
-  m_DeadZoneHeight: 0.3940747
+  m_DeadZoneWidth: 0
+  m_DeadZoneHeight: 0
   m_DeadZoneDepth: 0
   m_UnlimitedSoftZone: 0
   m_SoftZoneWidth: 0.8

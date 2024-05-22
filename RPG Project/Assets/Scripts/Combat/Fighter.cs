@@ -4,14 +4,17 @@ using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
 using Unity.VisualScripting;
+using UnityEngine.InputSystem;
+using RPG.Saving;
 
 namespace RPG.Combat
 {
-    public class Fighter : MonoBehaviour, IAction
+    public class Fighter : MonoBehaviour, IAction, ISaveable
     {
         [SerializeField] Transform rightHandTransform;
         [SerializeField] Transform leftHandTransform;
         [SerializeField] Weapon defaultWeapon = null;
+        [SerializeField] string defaultWeaponName = "Fist";
         Weapon currentWeapon;
         public Weapon getCurrentWeapon { get => currentWeapon; }
         Weapon prevWeapon = null;
@@ -20,7 +23,12 @@ namespace RPG.Combat
 
         private void Start()
         {
-            EquipWeapon(defaultWeapon);
+            if (currentWeapon == null)
+            {
+                Weapon weapon = Resources.Load<Weapon>(defaultWeaponName);
+                EquipWeapon(weapon);
+            }
+
         }
 
         private void Update()
@@ -59,8 +67,8 @@ namespace RPG.Combat
             for (int i = 0; i < hand.childCount; i++)
             {
                 // 착용하고자 하는 무기가 주먹이라면 반복문을 바로 빠져나옴 (무기가 있는지 확인 할 필요가 없음)
-                if(weapon.prefab == null) break;
-                
+                if (weapon.prefab == null) break;
+
                 //있다면 활성화
                 if (hand.GetChild(i).name.Contains(weapon.prefab.name))
                 {
@@ -102,16 +110,25 @@ namespace RPG.Combat
             prevWeapon = defaultWeapon;
             currentWeapon = null;
             return;
-
         }
 
         private void AttackBehaviour()
         {
             transform.LookAt(target.transform);
             if (timeSinceLastAttack < currentWeapon.duration) return;
+            if (gameObject.CompareTag("Player"))
+            {
+                if (isClicked == 0) return;
+            }
             TriggerAttack();
             timeSinceLastAttack = 0f;
 
+        }
+
+        float isClicked = 0f;
+        void OnMoveToPosition(InputValue input)
+        {
+            isClicked = input.Get<float>();
         }
 
         private void TriggerAttack()
@@ -127,7 +144,7 @@ namespace RPG.Combat
             if (target == null)
                 return;
 
-            if(currentWeapon.HasProjectile())
+            if (currentWeapon.HasProjectile())
                 currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
             else
                 target.TakeDamage(currentWeapon.damage);
@@ -138,7 +155,6 @@ namespace RPG.Combat
         {
             Hit();
         }
-
         private bool GetIsInRange()
         {
             Debug.Log($"distance : {Vector3.Distance(transform.position, target.transform.position)}, range : {currentWeapon.range}");
@@ -174,12 +190,25 @@ namespace RPG.Combat
 
         void OnSwapToPrevWeapon()
         {
-            if(prevWeapon == null)
+            if (prevWeapon == null)
             {
                 Debug.LogWarning("There is no previous weapon");
                 return;
             }
             EquipWeapon(prevWeapon);
+        }
+
+
+        public object CaptureState()
+        {
+            return currentWeapon.name;
+        }
+
+        public void RestoreState(object state)
+        {
+            string currentWeaponName = (string)state;
+            Weapon _currentWeapon = Resources.Load<Weapon>(currentWeaponName);
+            EquipWeapon(_currentWeapon);
         }
     }
 }

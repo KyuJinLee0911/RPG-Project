@@ -176,6 +176,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 1205053143611938399, guid: 3c11af8f8a3508f4f805715499ffefd8, type: 3}
       insertIndex: -1
       addedObject: {fileID: 7917989234855535840}
+    - targetCorrespondingSourceObject: {fileID: 1205053143611938399, guid: 3c11af8f8a3508f4f805715499ffefd8, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7079190781083087438}
   m_SourcePrefab: {fileID: 100100000, guid: 3c11af8f8a3508f4f805715499ffefd8, type: 3}
 --- !u!1 &4391569304876079138 stripped
 GameObject:
@@ -208,10 +211,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chaseDistance: 5
   chaseSpeed: 5
-  weaponRange: 1.5
   patrolPath: {fileID: 0}
   patrolSpeed: 2.5
   waypointTolerance: 1
+--- !u!114 &7079190781083087438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4391569304876079138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a51da7d84b1b1af46a379ab995a1f79a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sword: {fileID: 2800000, guid: 799d03fcd2484a149afba76ec1e1423e, type: 3}
+  original: {fileID: 2800000, guid: 475b348e5c9370044a9238eb6b21c982, type: 3}
 --- !u!4 &8389240886274465773 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6351300689817391504, guid: 3c11af8f8a3508f4f805715499ffefd8, type: 3}

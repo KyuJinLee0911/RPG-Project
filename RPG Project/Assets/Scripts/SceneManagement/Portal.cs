@@ -80,7 +80,6 @@ namespace RPG.SceneManagement
 
                 return portal;
             }
-
             return null;
         }
     }
