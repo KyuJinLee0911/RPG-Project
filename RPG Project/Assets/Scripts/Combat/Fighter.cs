@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using RPG.Movement;
 using RPG.Core;
-using Unity.VisualScripting;
 using UnityEngine.InputSystem;
 using RPG.Saving;
+using RPG.Attributes;
 
 namespace RPG.Combat
 {
@@ -112,6 +112,11 @@ namespace RPG.Combat
             return;
         }
 
+        public Health GetTarget()
+        {
+            return target;
+        }
+
         private void AttackBehaviour()
         {
             transform.LookAt(target.transform);
@@ -145,9 +150,9 @@ namespace RPG.Combat
                 return;
 
             if (currentWeapon.HasProjectile())
-                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target);
+                currentWeapon.LaunchProjectile(rightHandTransform, leftHandTransform, target, gameObject);
             else
-                target.TakeDamage(currentWeapon.damage);
+                target.TakeDamage(gameObject, currentWeapon.damage);
         }
 
         // Animation Event -> Bow
@@ -157,7 +162,6 @@ namespace RPG.Combat
         }
         private bool GetIsInRange()
         {
-            Debug.Log($"distance : {Vector3.Distance(transform.position, target.transform.position)}, range : {currentWeapon.range}");
             return Vector3.Distance(transform.position, target.transform.position) < currentWeapon.range;
         }
 

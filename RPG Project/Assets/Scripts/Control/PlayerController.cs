@@ -6,7 +6,7 @@ using RPG.Movement;
 using RPG.Combat;
 using RPG.Core;
 using UnityEngine.AI;
-using UnityEditor;
+using RPG.Attributes;
 
 namespace RPG.Control
 {

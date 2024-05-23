@@ -4,7 +4,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.AI;
-using System.ComponentModel;
 using RPG.Core;
 
 namespace RPG.SceneManagement

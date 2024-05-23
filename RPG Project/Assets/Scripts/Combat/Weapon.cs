@@ -1,8 +1,6 @@
 using System;
 using System.Runtime.InteropServices;
-using RPG.Core;
-using RPG.Saving;
-using Unity.VisualScripting;
+using RPG.Attributes;
 using UnityEngine;
 
 namespace RPG.Combat
@@ -53,13 +51,13 @@ namespace RPG.Combat
             return projectile != null;
         }
 
-        public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target)
+        public void LaunchProjectile(Transform rightHand, Transform leftHand, Health target, GameObject instigator)
         {
             Transform hand = FindHandTransform(rightHand, leftHand);
             Projectile projectileInstance = Instantiate(projectile, hand.position, Quaternion.identity);
 
             // 투사체의 목표를 설정 후 발사할 때 목표를 바라보고 화살이 일직선으로 나가도록
-            projectileInstance.SetTarget(target, weaponDamage);
+            projectileInstance.SetTarget(target, instigator, weaponDamage);
             projectileInstance.transform.LookAt(projectileInstance.GetAimLocation());
         }
     }

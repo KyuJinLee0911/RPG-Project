@@ -81,6 +81,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1022789130018155578, guid: 3c11af8f8a3508f4f805715499ffefd8, type: 3}
+      propertyPath: characterClass
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1205053143611938399, guid: 3c11af8f8a3508f4f805715499ffefd8, type: 3}
       propertyPath: m_Name
       value: Player
@@ -170,6 +174,9 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 1205053143611938399, guid: 3c11af8f8a3508f4f805715499ffefd8, type: 3}
       insertIndex: -1
+      addedObject: {fileID: 678992742034765441}
+    - targetCorrespondingSourceObject: {fileID: 1205053143611938399, guid: 3c11af8f8a3508f4f805715499ffefd8, type: 3}
+      insertIndex: -1
       addedObject: {fileID: 3331981925767225542}
   m_SourcePrefab: {fileID: 100100000, guid: 3c11af8f8a3508f4f805715499ffefd8, type: 3}
 --- !u!4 &1847022562135257814 stripped
@@ -182,6 +189,21 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1205053143611938399, guid: 3c11af8f8a3508f4f805715499ffefd8, type: 3}
   m_PrefabInstance: {fileID: 3456524882594584119}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &678992742034765441
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4557992889177358440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e1174cc3b12e864cbab879563fd53cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  experiencePoints: 0
+  expToNextLevel: 0
+  level: 1
 --- !u!114 &3331981925767225542
 MonoBehaviour:
   m_ObjectHideFlags: 0

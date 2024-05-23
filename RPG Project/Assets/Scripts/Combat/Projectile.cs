@@ -1,8 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using RPG.Core;
-using Unity.VisualScripting;
+using RPG.Attributes;
 using UnityEngine;
 
 namespace RPG.Combat
@@ -17,6 +16,7 @@ namespace RPG.Combat
         [SerializeField] GameObject explosionEffect;
 
         float maxLifeTime = 10f;
+        GameObject instigator = null;
 
         private void OnTriggerEnter(Collider other)
         {
@@ -28,7 +28,7 @@ namespace RPG.Combat
             }
             if (target.IsDead) return;
 
-            other.GetComponent<Health>().TakeDamage(projectileDamage);
+            other.GetComponent<Health>().TakeDamage(instigator, projectileDamage);
             if (isExplode)
                 Instantiate(explosionEffect, transform.position, Quaternion.identity);
 
@@ -49,10 +49,11 @@ namespace RPG.Combat
             transform.Translate(Vector3.forward * projectileSpeed * Time.deltaTime);
         }
 
-        public void SetTarget(Health target, float damage)
+        public void SetTarget(Health target, GameObject instigator, float damage)
         {
             this.target = target;
             projectileDamage = damage;
+            this.instigator = instigator;
 
             // 추후 오브젝트 풀링 방식으로 바꿀것
             Destroy(gameObject, maxLifeTime);
