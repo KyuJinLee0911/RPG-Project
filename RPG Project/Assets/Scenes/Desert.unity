@@ -26,7 +26,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 39d27e80110a983468075fd1868610d7, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -37,8 +37,8 @@ RenderSettings:
   m_ReflectionBounces: 1
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
-  m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
+  m_Sun: {fileID: 5518375286474119943}
+  m_IndirectSpecularColor: {r: 0.5049956, g: 0.592747, b: 0.6151627, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -97,7 +97,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
+  m_LightingDataAsset: {fileID: 112000000, guid: be17deb4a83381943b4d6551041349e4, type: 2}
   m_LightingSettings: {fileID: 0}
 --- !u!196 &4
 NavMeshSettings:
@@ -2567,6 +2567,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 776085757694650385, guid: 80af9684758b5b94fba9fcbf792411ad, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 776085757694650385, guid: 80af9684758b5b94fba9fcbf792411ad, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 906691714685997263, guid: 80af9684758b5b94fba9fcbf792411ad, type: 3}
       propertyPath: m_LocalPosition.x
       value: -33.68137
@@ -2583,6 +2591,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Core
       objectReference: {fileID: 0}
+    - target: {fileID: 4462581614425536397, guid: 80af9684758b5b94fba9fcbf792411ad, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5171859227671868583, guid: 80af9684758b5b94fba9fcbf792411ad, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246167064097375558, guid: 80af9684758b5b94fba9fcbf792411ad, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6246167064097375558, guid: 80af9684758b5b94fba9fcbf792411ad, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2591,6 +2615,11 @@ PrefabInstance:
 --- !u!4 &5518375286474119942 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2939765991403774944, guid: 80af9684758b5b94fba9fcbf792411ad, type: 3}
+  m_PrefabInstance: {fileID: 5518375286474119941}
+  m_PrefabAsset: {fileID: 0}
+--- !u!108 &5518375286474119943 stripped
+Light:
+  m_CorrespondingSourceObject: {fileID: 4462581614425536397, guid: 80af9684758b5b94fba9fcbf792411ad, type: 3}
   m_PrefabInstance: {fileID: 5518375286474119941}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7665967472703987243

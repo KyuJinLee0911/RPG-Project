@@ -108,6 +108,10 @@ PrefabInstance:
       propertyPath: defaultWeapon
       value: 
       objectReference: {fileID: 11400000, guid: 21ec7aff7116dac448b6d77787a82030, type: 2}
+    - target: {fileID: 8905933434395293736, guid: 19bef3c16ae1ce74bae909753ff1fe06, type: 3}
+      propertyPath: defaultWeaponName
+      value: Bow
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:

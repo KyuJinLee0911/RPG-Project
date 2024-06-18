@@ -36,6 +36,11 @@ namespace RPG.SceneManagement
             GetComponent<SavingSystem>().Save(defaultSaveFile);
         }
 
+        public void Delete()
+        {
+            GetComponent<SavingSystem>().Delete(defaultSaveFile);
+        }
+
         void OnSave()
         {
             Save();
@@ -44,6 +49,11 @@ namespace RPG.SceneManagement
         void OnLoad()
         {
             Load();
+        }
+
+        void OnDeleteSave()
+        {
+            Delete();
         }
     }
 }

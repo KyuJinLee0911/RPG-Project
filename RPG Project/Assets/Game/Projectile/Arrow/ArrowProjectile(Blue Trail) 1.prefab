@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2861328593863852573, guid: 6d9ebca6070a3b44d9210da10d6cfe9f, type: 3}
       propertyPath: m_Name
-      value: ArrowProjectile(Blue Trail)
+      value: ArrowProjectile(Blue Trail) 1
       objectReference: {fileID: 0}
     - target: {fileID: 3079504596767827009, guid: 6d9ebca6070a3b44d9210da10d6cfe9f, type: 3}
       propertyPath: m_LocalPosition.x

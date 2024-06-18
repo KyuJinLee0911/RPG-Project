@@ -76,6 +76,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "DeleteSave",
+                    "type": "Button",
+                    "id": "50a1d23b-89fe-41b5-8588-0374affc4025",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -186,6 +195,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "SwapToPrevWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "64ea9356-e171-4ce5-b2fa-487bdefc4540",
+                    "path": "<Keyboard>/delete",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DeleteSave",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

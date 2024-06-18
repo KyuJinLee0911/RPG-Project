@@ -22,6 +22,7 @@ namespace RPG.Stats
             return values[level - 1];
         }
 
+        // 스텟, 캐릭터 클래스, 레벨을 한꺼번에 관리할 수 있는 Dictionary 제작
         private void BuildLookUp()
         {
             if(lookUpTable != null) return;
@@ -34,6 +35,7 @@ namespace RPG.Stats
                 foreach(var _stat in _class.progStats)
                 {
                     statLookUpTable[_stat.stat] = _stat.values;
+                    
                 }
                 lookUpTable[_class.characterClass] = statLookUpTable;
             }

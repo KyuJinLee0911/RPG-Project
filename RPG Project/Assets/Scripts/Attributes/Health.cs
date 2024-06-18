@@ -10,12 +10,24 @@ namespace RPG.Attributes
         bool isDead = false;
 
         public bool IsDead { get => isDead; }
-        [SerializeField] float health = 100f;
+        [SerializeField] float health = 100;
         public float hp { get => health; }
         [SerializeField] float maxHealth = 100f;
         public float maxHp { get => maxHealth; }
 
         private void Start()
+        {
+            if(!isDead) health = GetComponent<BaseStats>().GetStat(Stat.Health);
+            maxHealth = GetComponent<BaseStats>().GetStat(Stat.Health); 
+
+            BaseStats baseStats = GetComponent<BaseStats>();
+            if (baseStats != null)
+            {
+                baseStats.OnLevelUp += LevelUpHpUpdate;
+            }
+        }
+
+        private void LevelUpHpUpdate()
         {
             health = GetComponent<BaseStats>().GetStat(Stat.Health);
             maxHealth = GetComponent<BaseStats>().GetStat(Stat.Health);
@@ -38,7 +50,7 @@ namespace RPG.Attributes
         private void AwardExperience(GameObject instigator)
         {
             Experience experience = instigator.GetComponent<Experience>();
-            if(experience == null) return;
+            if (experience == null) return;
             float _exp = GetComponent<BaseStats>().GetStat(Stat.ExperienceReward);
             experience.GainExperience(_exp);
         }

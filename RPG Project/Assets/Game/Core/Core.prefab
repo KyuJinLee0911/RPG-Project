@@ -478,6 +478,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hud
       objectReference: {fileID: 0}
+    - target: {fileID: 3855847533699924832, guid: bc5b57079cb2166428c58162a046a33b, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -0.04305744
+      objectReference: {fileID: 0}
     - target: {fileID: 7454384678598200419, guid: bc5b57079cb2166428c58162a046a33b, type: 3}
       propertyPath: m_Pivot.x
       value: 0

@@ -21,19 +21,19 @@ namespace RPG.Attributes
             stats = GameObject.FindWithTag("Player").GetComponent<BaseStats>();
         }
 
-        private void Update()
+        private void Start()
         {
-            CalculateCurrentExp();     
-
+            DisplayCurrentExp();
+            experience.OnExperienceGained += DisplayCurrentExp;
+            stats.OnLevelUp += DisplayCurrentExp;
         }
 
-        private void CalculateCurrentExp()
+        private void DisplayCurrentExp()
         {
             expBar.value = experience.exp - stats.maxExp;
             expBar.maxValue = experience.maxExp - stats.maxExp;
-            expText.text = $"{Mathf.FloorToInt((experience.exp - stats.maxExp) / (experience.maxExp - stats.maxExp) * 100)}% ({experience.exp} / {experience.maxExp})";
+            expText.text = $"{Mathf.FloorToInt(expBar.value / expBar.maxValue * 100)}% ({experience.exp} / {experience.maxExp})";
             levelText.text = $"Lv.{stats.GetLevel()}";
         }
     }
-
 }

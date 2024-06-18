@@ -48,4 +48,18 @@ MonoBehaviour:
   - characterClass: 2
     progStats: []
   - characterClass: 3
-    progStats: []
+    progStats:
+    - stat: 0
+      values:
+      - 15
+      - 40
+      - 100
+      - 250
+      - 625
+    - stat: 1
+      values:
+      - 40
+      - 40
+      - 40
+      - 40
+      - 40

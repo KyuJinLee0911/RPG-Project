@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using RPG.Saving;
@@ -13,30 +14,46 @@ namespace RPG.Attributes
         [SerializeField] float expToNextLevel = 0;
         public float maxExp { get => expToNextLevel; }
 
-        public object CaptureState()
+        public event Action OnExperienceGained;
+
+        private void Start()
         {
-            return experiencePoints;
+            OnExperienceGained += CheckExp;
+            OnExperienceGained();
         }
 
         public void GainExperience(float experience)
         {
             experiencePoints += experience;
+            OnExperienceGained();
         }
 
-        private void Start()
-        {
-
-        }
-
-        private void Update()
+        
+        private void CheckExp()
         {
             expToNextLevel = GameObject.FindWithTag("Player").GetComponent<BaseStats>().GetStat(Stat.ExpToNextLevel);
         }
 
+        [System.Serializable]
+        struct ExpData
+        {
+            public float exp;
+            public float maxExp;
+        }
+
+        public object CaptureState()
+        {
+            ExpData data = new ExpData();
+            data.exp = experiencePoints;
+            data.maxExp = expToNextLevel;
+            return data;
+        }
+
         public void RestoreState(object state)
         {
-            float exp = (float)state;
-            experiencePoints = exp;
+            ExpData data = (ExpData)state;
+            experiencePoints = data.exp;
+            expToNextLevel = data.maxExp;
         }
     }
 

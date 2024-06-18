@@ -98,6 +98,15 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""DeleteSave"",
+                    ""type"": ""Button"",
+                    ""id"": ""50a1d23b-89fe-41b5-8588-0374affc4025"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -208,6 +217,17 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""SwapToPrevWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""64ea9356-e171-4ce5-b2fa-487bdefc4540"",
+                    ""path"": ""<Keyboard>/delete"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""DeleteSave"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -803,6 +823,7 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
         m_Player_Save = m_Player.FindAction("Save", throwIfNotFound: true);
         m_Player_Load = m_Player.FindAction("Load", throwIfNotFound: true);
         m_Player_SwapToPrevWeapon = m_Player.FindAction("SwapToPrevWeapon", throwIfNotFound: true);
+        m_Player_DeleteSave = m_Player.FindAction("DeleteSave", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -884,6 +905,7 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Save;
     private readonly InputAction m_Player_Load;
     private readonly InputAction m_Player_SwapToPrevWeapon;
+    private readonly InputAction m_Player_DeleteSave;
     public struct PlayerActions
     {
         private @RPGProject m_Wrapper;
@@ -896,6 +918,7 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
         public InputAction @Save => m_Wrapper.m_Player_Save;
         public InputAction @Load => m_Wrapper.m_Player_Load;
         public InputAction @SwapToPrevWeapon => m_Wrapper.m_Player_SwapToPrevWeapon;
+        public InputAction @DeleteSave => m_Wrapper.m_Player_DeleteSave;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -929,6 +952,9 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
             @SwapToPrevWeapon.started += instance.OnSwapToPrevWeapon;
             @SwapToPrevWeapon.performed += instance.OnSwapToPrevWeapon;
             @SwapToPrevWeapon.canceled += instance.OnSwapToPrevWeapon;
+            @DeleteSave.started += instance.OnDeleteSave;
+            @DeleteSave.performed += instance.OnDeleteSave;
+            @DeleteSave.canceled += instance.OnDeleteSave;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -957,6 +983,9 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
             @SwapToPrevWeapon.started -= instance.OnSwapToPrevWeapon;
             @SwapToPrevWeapon.performed -= instance.OnSwapToPrevWeapon;
             @SwapToPrevWeapon.canceled -= instance.OnSwapToPrevWeapon;
+            @DeleteSave.started -= instance.OnDeleteSave;
+            @DeleteSave.performed -= instance.OnDeleteSave;
+            @DeleteSave.canceled -= instance.OnDeleteSave;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -1147,6 +1176,7 @@ public partial class @RPGProject: IInputActionCollection2, IDisposable
         void OnSave(InputAction.CallbackContext context);
         void OnLoad(InputAction.CallbackContext context);
         void OnSwapToPrevWeapon(InputAction.CallbackContext context);
+        void OnDeleteSave(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
